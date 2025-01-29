@@ -17,6 +17,7 @@ filelock
 folium
 future
 geocoder
+gunicorn
 idna
 Jinja2
 joblib
