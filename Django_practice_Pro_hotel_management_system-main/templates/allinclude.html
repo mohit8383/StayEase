@@ -1,45 +1,40 @@
 {% load static %}
-
 <!DOCTYPE HTML>
 <head>
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
      <title>
-       {% block title %}
-		  {% endblock %}
+       {% block title %}{% endblock %}
      </title>
+
      <!-- GOOGLE FONT -->
      <link rel="preconnect" href="https://fonts.gstatic.com">
      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;
                  600;700;800&display=swap" rel="stylesheet">
-     {% load static %}
+
      <!-- Bootstrap Css -->
-      <link rel="stylesheet" href="{%static 'Allfiles/Css/bootstrap.min.css'%}">
+     <link rel="stylesheet" href="{% static 'Allfiles/Css/bootstrap.min.css' %}">
 
      <!-- Fontawesome Css -->
-     <link rel="stylesheet" href="{%static 'Allfiles/Css/fontawesome.min.css'%}">
-     <!-- all plugin Css-->
+     <link rel="stylesheet" href="{% static 'Allfiles/Css/fontawesome.min.css' %}">
+     
+     <!-- All plugin Css -->
+     <link rel="stylesheet" href="{% static 'Allfiles/Css/animate.css' %}">
+     <link rel="stylesheet" href="{% static 'Allfiles/Css/slick.css' %}">
+     <link rel="stylesheet" href="{% static 'Allfiles/Css/jquery.datetimepicker.min.css' %}">
+     <link rel="stylesheet" href="{% static 'Allfiles/Css/modal-video.min.css' %}">
+     <link rel="stylesheet" href="{% static 'Allfiles/Css/magnific-popup.css' %}">
 
-      <!--textilate  plugin Css-->
-     <link rel="stylesheet" href="{%static 'Allfiles/Css/animate.css'%}">
-      <!--Slick plugin Css-->
-     <link rel="stylesheet" href="{%static 'Allfiles/Css/slick.css'%}">
-      <!--datetimepicker plugin Css-->
-     <link rel="stylesheet" href="{%static 'Allfiles/Css/jquery.datetimepicker.min.css'%}">
-      <!--Modal Video Css-->
-     <link rel="stylesheet" href="{%static 'Allfiles/Css/modal-video.min.css'%}">
-      <!--magnific-popup Css-->
-     <link rel="stylesheet" href="{%static 'Allfiles/Css/magnific-popup.css'%}">
-      <!--colorfulTab Css-->
-
-
-      <!-- Style  Css -->
-     <link rel="stylesheet" href="{%static 'Allfiles/Css/Style.css'%}">
-      <!-- Responsive  Css -->
-     <link rel="stylesheet" href="{%static 'Allfiles/Css/Responsive.css'%}">
+     <!-- Style Css -->
+     <link rel="stylesheet" href="{% static 'Allfiles/Css/Style.css' %}">
+     
+     <!-- Responsive Css -->
+     <link rel="stylesheet" href="{% static 'Allfiles/Css/Responsive.css' %}">
 
 </head>
 <body>
+     CSS should now work correctly!
+</body>
 
      <!--================Header Area Start=================-->
      <header id="header">
