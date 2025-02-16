@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-dev&h09slzzbp!j(f^_lsen+afmt_&cnl96uus15mqnjc68)60'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = False  # Change to False for production
 
 ALLOWED_HOSTS = ['hotel-management-cqvn.onrender.com', '127.0.0.1', 'localhost']
 
@@ -38,11 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'whitenoise.runserver_nostatic',  # Ensure WhiteNoise is added here
     'HotelApp'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Added WhiteNoise
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -78,7 +80,7 @@ WSGI_APPLICATION = 'HotelManagementSystem.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME':  'Project_hotel',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),  # Ensure correct path
     }
 }
 
@@ -120,12 +122,21 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS =[
-  os.path.join (BASE_DIR / 'static')
+
+# Directory for static files during collectstatic
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Directories where Django looks for additional static files
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
 ]
-STATIC_ROOT = os.path.join (BASE_DIR,'assets')
-MEDIA_ROOT = os.path.join (BASE_DIR,'static/Media')
-MEDIA_URL = '/Media/'
+
+# WhiteNoise storage for serving static files in production
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Media files
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # Default primary key field type
